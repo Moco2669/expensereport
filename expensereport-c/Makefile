@@ -10,15 +10,16 @@ test: ExpenseReportTest
 	diff expected.txt actual.txt
 
 .PHONY: watch
+watch: FILES:=$(wildcard *.c *.h) expected.txt
 watch:
 	if which inotifywait ; then \
 	    while true; do \
-	        inotifywait $(wildcard *.c *.h); \
+	        inotifywait $(FILES); \
 	        $(MAKE) test; \
 	    done; \
 	elif which fswatch ; then \
 	    while true; do \
-	        fswatch -1 $(wildcard *.c *.h); \
+	        fswatch -1 $(FILES); \
 	        $(MAKE) test; \
 	    done; \
 	fi
