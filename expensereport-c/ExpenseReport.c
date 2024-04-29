@@ -21,7 +21,7 @@ int sumTotal(const struct Expense expenses[], size_t numExpenses) {
     return total;
 }
 
-void printReportHeader() {
+void printReportHeader(void) {
     time_t now;
     if (time(&now) == -1)
         return;
