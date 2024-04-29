@@ -1,7 +1,15 @@
 #ifndef EXPENSE_H
 #define EXPENSE_H
 
-#include "ExpenseType.h"
+#include <stdbool.h>
+
+struct ExpenseType;
+
+extern const struct ExpenseType
+    *const DINNER,
+    *const BREAKFAST,
+    *const CAR_RENTAL,
+    *const LUNCH;
 
 struct Expense {
     const struct ExpenseType *type;
